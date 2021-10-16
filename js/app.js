@@ -117,13 +117,6 @@ $(() => {
         });
     };
 
-    if (parseInt(budgetAmount.text()) === parseInt(balanceAmount.text())) {
-        expenseForm.on('submit', () => {
-            thead.html('');
-            makeHead();
-        });
-    }
-
     if (budgetFromStorage) budgetAmount.text(parseInt(budgetFromStorage));
     if (expenseFromStorage) expenseAmount.text(parseInt(expenseFromStorage));
 
@@ -191,6 +184,9 @@ $(() => {
                 removeItem(expenseFeedback, 'showItem')
             );
         } else {
+            thead.html('');
+            makeHead();
+
             if (!isEdited) {
                 const newRow = {
                     expense: expenseInput.val(),
@@ -252,7 +248,7 @@ $(() => {
                     );
 
                     if (rowFromStorage) {
-                        tbody.empty();
+                        tbody.html('');
                         rowFromStorage.forEach(row =>
                             makeAndManipulateRows(row.expense, row.amount)
                         );
@@ -376,13 +372,6 @@ $(() => {
 //     });
 // };
 
-// if (+budgetAmount.textContent === +balanceAmount.textContent) {
-//     expenseForm.addEventListener('submit', () => {
-//         thead.innerHTML = '';
-//         makeHead();
-//     });
-// }
-
 // budgetForm.addEventListener('submit', e => {
 //     e.preventDefault();
 //     if (!budgetInput.value || budgetInput.valueAsNumber < 0) {
@@ -423,6 +412,9 @@ $(() => {
 //             removeItem(expenseFeedback, 'showItem')
 //         );
 //     } else {
+//         thead.innerHTML = '';
+//         makeHead();
+
 //         if (!isEdited) {
 //             const newRow = {
 //                 expense: expenseInput.value,
@@ -646,13 +638,6 @@ $(() => {
 //         });
 //     };
 
-//     if (parseInt(budgetAmount.text()) === parseInt(balanceAmount.text())) {
-//         expenseForm.on('submit', () => {
-//             thead.html('');
-//             makeHead();
-//         });
-//     }
-
 //     if (budgetFromStorage) budgetAmount.text(parseInt(budgetFromStorage));
 //     if (expenseFromStorage) expenseAmount.text(parseInt(expenseFromStorage));
 //     if (balanceFromStorage) balanceAmount.text(parseInt(balanceFromStorage));
@@ -720,6 +705,9 @@ $(() => {
 //                 removeItem(expenseFeedback, 'showItem')
 //             );
 //         } else {
+//             thead.html('');
+//             makeHead();
+
 //             expenseAmount.text(
 //                 parseInt(amountInput.val()) + parseInt(expenseAmount.text())
 //             );
@@ -863,13 +851,6 @@ $(() => {
 //     });
 // };
 
-// if (+budgetAmount.textContent === +balanceAmount.textContent) {
-//     expenseForm.addEventListener('submit', () => {
-//         thead.innerHTML = '';
-//         makeHead();
-//     });
-// }
-
 // budgetForm.addEventListener('submit', e => {
 //     e.preventDefault();
 //     if (!budgetInput.value || budgetInput.valueAsNumber < 0) {
@@ -910,6 +891,9 @@ $(() => {
 //             removeItem(expenseFeedback, 'showItem')
 //         );
 //     } else {
+//         thead.innerHTML = '';
+//         makeHead();
+
 //         expenseAmount.textContent =
 //             amountInput.valueAsNumber + +expenseAmount.textContent;
 //         setItemLS('expenseAmount', expenseAmount.textContent);
